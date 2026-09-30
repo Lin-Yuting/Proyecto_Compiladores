@@ -18,6 +18,9 @@ class Stack{
             delete[] stack_arr;
         }
 
+        Stack(const Stack&) = delete;
+        Stack& operator=(const Stack&) = delete;
+
         void isEmpty(){
             if (top < 0){
                 cout << "Stack vacio" << endl;
@@ -77,7 +80,7 @@ class Queue{
         int *queue_arr;
 
     public:
-        Queue(int max_size = 10){
+        Queue(int max_size = 5){
             this->max_size = max_size;
             this->actual_size = 0;
             this->front = -1;
@@ -88,6 +91,9 @@ class Queue{
         ~Queue(){
             delete[] queue_arr;
         }
+
+        Queue(const Queue&) = delete;
+        Queue& operator=(const Queue&) = delete;
 
         void isEmpty(){
             if (actual_size == 0){
@@ -243,6 +249,8 @@ int main(){
     stack.push(43);       
     stack.display();
     stack.push(54);         
+    stack.display();
+    stack.push(65);         // Elemento 6, pero debe de indicar que esta lleno
     stack.display();
     stack.topElement();
 
