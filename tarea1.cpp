@@ -8,8 +8,8 @@ class Stack{
         int *stack_arr;
 
     public:
-        Stack (){
-            this->max_size = sizeof(stack_arr);
+        Stack (int max_size = 5){
+            this->max_size = max_size;
             this->top = -1;
             this->stack_arr = new int[max_size];
         }
@@ -36,6 +36,10 @@ class Stack{
         }
 
         void push(int newvalue){
+            if (top >= max_size - 1){
+                cout << "Stack esta lleno, no se puede agregar mas" << endl;
+                return;
+            }
             top = top + 1;
             stack_arr[top] = newvalue;
         }
@@ -86,7 +90,7 @@ class Queue{
         }
 
         void isEmpty(){
-            if (front < 0){
+            if (actual_size == 0){
                 cout << "Queue vacio" << endl;
             }
             else{
@@ -124,7 +128,7 @@ class Queue{
         }
 
         void enqueue(int newvalue){
-            if (actual_size >= max_size){
+            if (rear >= max_size - 1){
                 cout << "Queue esta lleno, no se puede agregar mas" << endl;
                 return;
             }
