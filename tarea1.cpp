@@ -169,7 +169,7 @@ private:
     bool* ocupado;      // ocupado[k] == true si la clave k tiene un valor
 
 public:
-    explicit Diccionario(int capacidad = 5)
+    explicit Diccionario(int capacidad = 6)
         : actual_size(0), max_size(capacidad),
           valores(new int[capacidad]()), ocupado(new bool[capacidad]()) {}
 
@@ -222,27 +222,24 @@ int main(){
     // Casos de pruebas para stack
     Stack stack;
 
-    // Hacer el display del stack vacio: Stack vacio
+    // display y pop del stack vacio: Stack vacio
     stack.display();
-
-    // Hacer el pop del stack vacio: : Stack vacio
     stack.pop();
 
-    // Hacer el push de 5 elementos al stack, 
-    // combinados de numeros enteros, decimales y letras
-    stack.push(1);          // Elemento 1
+    // push de 6 elementos al stack, 
+    stack.push(1);         
     stack.display();
-    stack.push(2);    // Elemento 2
+    stack.push(21);         
     stack.display();
-    stack.push(3);       // Elemento 3
+    stack.push(32);         
     stack.display();
-    stack.push(41);       // Elemento 4
+    stack.push(43);       
     stack.display();
-    stack.push(5);          // Elemento 5
+    stack.push(54);         
     stack.display();
     stack.topElement();
 
-    // Hacer el pop del stack (5 -> 4 elementos)
+    // pop del stack (5 -> 4 elementos)
     stack.pop();
     stack.display();
 
@@ -251,26 +248,34 @@ int main(){
     // Casos de pruebas para fila
     Queue queue(5);
 
+    // display y dequeue del queue vacio: Queue vacio
+    queue.display();
+    queue.dequeue();
+
+    // verificar si esta vacio o lleno de queue sin elementos
     queue.isEmpty();
     queue.isFull();
 
-    queue.enqueue(1);
+    // enqueue de 6 elementos al queue
+    queue.enqueue(1);      
     queue.display();
-    queue.enqueue(2);
+    queue.enqueue(2);      
     queue.display();
-    queue.enqueue(3);
+    queue.enqueue(3);      
     queue.display();
-    queue.enqueue(4);
+    queue.enqueue(4);       
     queue.display();
-    queue.enqueue(5);
+    queue.enqueue(5);       
     queue.display();
-    queue.enqueue(6);
+    queue.enqueue(6);       // Elemento 6, pero debe de indicar que esta llena
     queue.frontElement();
     queue.rearElement();
 
+    // verificar si esta vacio o lleno de queue con elementos
     queue.isEmpty();
     queue.isFull();
 
+    // dequeue (5 -> 4 elementos)
     queue.dequeue();
     queue.display();
 
@@ -279,6 +284,12 @@ int main(){
     // Casos de pruebas para diccionario
     Diccionario diccionario;
 
+    // remove de un elemento que no existe
+    diccionario.remove(2);
+    //display del diccionario vacio
+    diccionario.display();
+
+    // add de 6 elementos al diccionario
     diccionario.add(1, 10);
     diccionario.display();
     diccionario.add(2, 20);
@@ -287,11 +298,12 @@ int main(){
     diccionario.display();
     diccionario.add(4, 40);
     diccionario.display();
-    diccionario.add(5, 50);
+    diccionario.add(5, 50);    
     diccionario.display();
-    diccionario.add(6, 60);
+    diccionario.add(6, 60);     // fuera de rango
     diccionario.display();
 
+    // remove de un elemento que si existe
     diccionario.remove(2);
     diccionario.display();
 
