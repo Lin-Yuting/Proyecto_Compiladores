@@ -3,15 +3,15 @@ using namespace std;
 
 class Stack{
     private:
-        int size;
+        int max_size;
         int top;
         int *stack_arr;
 
     public:
         Stack (){
-            this->size = sizeof(stack_arr);
+            this->max_size = sizeof(stack_arr);
             this->top = -1;
-            this->stack_arr = new int[size];
+            this->stack_arr = new int[max_size];
         }
 
         ~Stack(){
@@ -66,8 +66,8 @@ class Stack{
 
 class Queue{
     private:
-        int actual_size;
         int max_size;
+        int actual_size;
         int front;
         int rear;
         int *queue_arr;
@@ -75,6 +75,7 @@ class Queue{
     public:
         Queue(int max_size = 10){
             this->max_size = max_size;
+            this->actual_size = 0;
             this->front = -1;
             this->rear = -1;
             this->queue_arr = new int[max_size];
@@ -103,7 +104,7 @@ class Queue{
         }
 
         void frontElement(){
-            if (front < 0 || front > rear){
+            if (actual_size == 0){
                 cout << "Queue vacio" << endl;
                 return;
             }
@@ -113,7 +114,7 @@ class Queue{
         }
 
         void rearElement(){
-            if (rear < 0 || rear < front){
+            if (actual_size == 0){
                 cout << "Queue vacio" << endl;
                 return;
             }
@@ -123,13 +124,14 @@ class Queue{
         }
 
         void enqueue(int newvalue){
-            if (rear >= max_size - 1){
+            if (actual_size >= max_size){
                 cout << "Queue esta lleno, no se puede agregar mas" << endl;
                 return;
             }
             else{
                 rear = rear + 1;
                 queue_arr[rear] = newvalue;
+                actual_size = actual_size + 1;
                 if (front == -1){
                     front = 0;
                 }
@@ -143,6 +145,7 @@ class Queue{
             }
             else{
                 front = front + 1;
+                actual_size = actual_size - 1;
             }
         }
 
