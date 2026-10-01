@@ -1,6 +1,16 @@
 #include <iostream>
 using namespace std;
 
+
+// Una clase para representar un stack (pila) de enteros
+// Donde los elemento se agregan y se eliminan del mismo lado, que es el top de la pila
+// Los atributos de la clase son privados: tamao maximo, el top, y el arreglo de stack
+// Los metodos son publicos para que permiten interactuar con el stack:
+// - isEmpty: indica si el stack esta vacio
+// - topElement: indica el elemento al top del stack
+// - push: agrega un elemento al top del stack
+// - pop: elimina el elemento al top del stack
+// - display: muestra los elementos del stack
 class Stack{
     private:
         int max_size;
@@ -71,6 +81,18 @@ class Stack{
     
 };
 
+
+// Una clase para representar una queue (fila) de enteros
+// Donde los elementos se agregan al final de la fila (rear) y se eliminan del frente de la fila (front)
+// Los atributos de la clase son privados: tamao maximo, el tamao actual, el frente, el final, y el arreglo de queue
+// Los metodos son publicos para que permiten interactuar con la queue:
+// - isEmpty: indica si la queue esta vacia
+// - isFull: indica si la queue esta llena
+// - frontElement: indica el elemento al frente de la queue
+// - rearElement: indica el elemento al final de la queue
+// - enqueue: agrega un elemento al final de la queue
+// - dequeue: elimina el elemento al frente de la queue
+// - display: muestra los elementos de la queue
 class Queue{
     private:
         int max_size;
@@ -174,6 +196,14 @@ class Queue{
         }
 };
 
+
+// Una clase para representar un diccionario (mapa) de enteros
+// Donde los elementos se agregan y se eliminan por clave (key) y valor (value)
+// Los atributos de la clase son privados: tamao maximo, el tamao actual, el arreglo de valores, y un arreglo de booleanos que indica si una clave esta ocupada
+// Los metodos son publicos para que permiten interactuar con el diccionario:
+// - add: agrega un elemento al diccionario
+// - remove: elimina un elemento del diccionario
+// - display: muestra los elementos del diccionario
 class Diccionario {
 private:
     int actual_size;
