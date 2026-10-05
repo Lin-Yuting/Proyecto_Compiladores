@@ -1,0 +1,10 @@
+# Programa de prueba
+x = 5;
+y = x * 2 + 3;      # 13
+print y;
+print (x + y) / 2;  # 9
+print 2 ^ 3 ^ 2;    # 512 (asociativo a la derecha)
+print -x + 10;      # 5
+z = 4 + ;           # error sintáctico, se recupera
+print x @ 2;        # error léxico
+print z + 1;
